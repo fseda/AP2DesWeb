@@ -1,8 +1,6 @@
 window.onload = async () => {
 
   const passFromLS = getPassFromLS() ?? "";
-  console.log(passFromLS);
-
   if (!checkPassHash(passFromLS)) {
     loadNotAuthenticated();
   }
@@ -30,7 +28,6 @@ const backBtnEvt = () => {
   const backBtn = document.getElementById('backBtn');
   backBtn.onclick = () => {
     window.location.href = '/';
-    console.log("clicked")
   }
 }
 
@@ -40,7 +37,6 @@ const createBackBtn = () => {
   backBtn.innerText = 'Voltar';
   backBtn.onclick = () => {
     window.location.href = '/';
-    console.log("clicked")
   }
   return backBtn;
 

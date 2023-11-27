@@ -2,8 +2,6 @@
 
 window.onload = () => {
   const passFromLS = getPassFromLS() ?? "";
-  console.log(passFromLS);
-
 
   if (!checkPassHash(passFromLS)) {
     loadLoginPage();
@@ -95,6 +93,7 @@ function setHeader(playerType) {
     gridContainer.innerHTML = '';
     const players = await getPlayers(teamSelector.value);
     loadData(players);
+    h1.innerHTML = teamSelector.value === "all" ? 'Todos os jogadores' : teamSelector.value === "masculino" ? 'Jogadores do time masculino' : 'Jogadoras do time feminino';
   };
 
   logout.onclick = () => {
@@ -115,7 +114,6 @@ function setHeader(playerType) {
 
 async function loadTeam(teamType) {
   const players = await getPlayers(teamType);
-  console.log("load initial data");
   loadData(players);
   setHeader(teamType);
 }
