@@ -27,7 +27,7 @@ const init = async (id) => {
 const backBtnEvt = () => {
   const backBtn = document.getElementById('backBtn');
   backBtn.onclick = () => {
-    window.location.href = 'index.html';
+    window.location.href = '/index.html';
   }
 }
 
@@ -36,7 +36,7 @@ const createBackBtn = () => {
   backBtn.id = 'backBtn';
   backBtn.innerText = 'Voltar';
   backBtn.onclick = () => {
-    window.location.href = 'index.html';
+    window.location.href = '/index.html';
   }
   return backBtn;
 
