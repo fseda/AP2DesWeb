@@ -34,28 +34,26 @@ header {
 
 .grid-container {
   z-index: 10;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 5rem;
   padding: 2rem;
   display: grid;
   align-items: start;
-  grid-template-columns: repeat(5, 1fr); 
+  grid-template-columns: repeat(autofill, minmax(300px, 1fr)); 
   gap: 15px; 
-  transition: opacity 0.5s ease-out;
+  transition: opacity 15s ease-out;
 }
 
 .player-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  position: relative;
-  min-height: 350px;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   cursor: pointer;
+  width: 100%;
 }
 
 .player-card:hover {
@@ -182,6 +180,10 @@ header {
   border-width: 0.2rem;
 }
 
+.btn-container {
+  display: none;
+}
+
 button {
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -193,19 +195,15 @@ button {
   transition: background-color 0.3s ease;
 }
 
-@media (max-width: 500px) {
-  .password-form {
-    flex-direction: column;
-  }
-
-  button {
-    width: 90%;
+@media only screen and (max-width: 456px) {
+  .grid-container {
+    margin-top: 8rem;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .grid-container {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
   }
 
   .login-container form {
@@ -219,12 +217,38 @@ button {
   .player-container {
     flex-direction: column;
   }
-
-  
 }
 
-@media (max-width: 480px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
   .grid-container {
-      grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .team-selector {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .team-selector {
+    display: none;
   }
 }

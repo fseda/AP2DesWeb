@@ -80,8 +80,45 @@ function setHeader(playerType) {
   womenOption.value = "feminino";
   womenOption.innerText = 'Feminino';
 
+
+  const menBtn = document.createElement('button');
+  menBtn.innerText = 'Masculino';
+  menBtn.onclick = async () => {
+    const gridContainer = document.querySelector('.grid-container');
+    gridContainer.innerHTML = '';
+    const players = await getPlayers("masculino");
+    loadData(players);
+    h1.innerHTML = 'Jogadores do time masculino';
+  }
+
+  const womenBtn = document.createElement('button');
+  womenBtn.innerText = 'Feminino';
+  womenBtn.onclick = async () => {
+    const gridContainer = document.querySelector('.grid-container');
+    gridContainer.innerHTML = '';
+    const players = await getPlayers("feminino");
+    loadData(players);
+    h1.innerHTML = 'Jogadoras do time feminino';
+  }
+
+  const allBtn = document.createElement('button');
+  allBtn.innerText = 'Todos';
+  allBtn.onclick = async () => {
+    const gridContainer = document.querySelector('.grid-container');
+    gridContainer.innerHTML = '';
+    const players = await getPlayers("all");
+    loadData(players);
+    h1.innerHTML = 'Todos os jogadores';
+  }
+
+  const btnContainer = document.createElement('div');
+  btnContainer.className = 'btn-container';
+  btnContainer.appendChild(menBtn);
+  btnContainer.appendChild(womenBtn);
+  btnContainer.appendChild(allBtn);
+
   const h1 = document.createElement('h1');
-  h1.innerHTML = teamSelector.value === "ll" ? 'Todos os jogadores' : teamSelector.value === "masculino" ? 'Jogadores do time masculino' : 'Jogadoras do time feminino';
+  h1.innerHTML = teamSelector.value === "all" ? 'Todos os jogadores' : teamSelector.value === "masculino" ? 'Jogadores do time masculino' : 'Jogadoras do time feminino';
 
   const logout = document.createElement('button');
   logout.innerText = 'Sair';
@@ -106,6 +143,7 @@ function setHeader(playerType) {
   teamSelector.appendChild(womenOption);
 
   header.appendChild(teamSelector);
+  header.appendChild(btnContainer);
   header.appendChild(h1);
   header.appendChild(logout);
 
