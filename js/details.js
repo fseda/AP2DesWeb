@@ -24,19 +24,12 @@ const init = async (id) => {
   }
 }
 
-const backBtnEvt = () => {
-  const backBtn = document.getElementById('backBtn');
-  backBtn.onclick = () => {
-    window.location.href = '/index.html';
-  }
-}
-
 const createBackBtn = () => {
   const backBtn = document.createElement('button');
   backBtn.id = 'backBtn';
   backBtn.innerText = 'Voltar';
   backBtn.onclick = () => {
-    window.location.href = '/index.html';
+    window.location.href = 'AP2DesWeb/index.html';
   }
   return backBtn;
 
