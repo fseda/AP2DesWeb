@@ -29,7 +29,7 @@ const createBackBtn = () => {
   backBtn.id = 'backBtn';
   backBtn.innerText = 'Voltar';
   backBtn.onclick = () => {
-    window.location.href = 'AP2DesWeb/index.html';
+    window.location.href = 'index.html';
   }
   return backBtn;
 
